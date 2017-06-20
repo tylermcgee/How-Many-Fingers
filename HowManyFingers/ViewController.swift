@@ -10,16 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var guessField: UITextField!
+ 
+    @IBAction func guessButton(_ sender: Any) {
+        
+        let diceRoll = String(arc4random_uniform(6))
+        
+        if guessField.text == diceRoll {
+            
+            resultLabel.text = "You're right!"
+            
+        } else {
+            
+            resultLabel.text = "Wrong, it was a " + diceRoll + "."
+        }
+        
+    }
+  
+    @IBOutlet weak var resultLabel: UILabel!
+
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-}
 
